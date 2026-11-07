@@ -7,6 +7,15 @@ public: false
 
 A starting list of places to watch. Add to it whenever something proves useful, and remove things that go stale. Each line: name, link, one line on why it is worth watching.
 
+## Ideas and long-form
+
+- Antikythera · https://antikythera.org · Berggruen Institute program on the philosophy of planetary-scale computation. Its journal (https://journal.antikythera.org) and MIT Press book series are core reading for this catalog. Publisher of *What Is Intelligence?*.
+- Noema Magazine · https://www.noemamag.com · Berggruen Institute's magazine; frequent long essays on AI, minds and technology.
+- Quanta Magazine · https://www.quantamagazine.org · The best general-audience science journalism on neuroscience, computation and math.
+- The Transmitter · https://www.thetransmitter.org · Neuroscience news and essays from the Simons Foundation.
+- Asterisk Magazine · https://asteriskmag.com · Careful long-form essays on AI and science.
+- The Gradient · https://thegradient.pub · Essays and interviews on AI research, written by researchers.
+
 ## Research and papers
 
 - arXiv (cs.LG, cs.AI, q-bio.NC, cs.AR) · https://arxiv.org · The firehose. Use listings and filters, not the front page.
@@ -54,6 +63,12 @@ A starting list of places to watch. Add to it whenever something proves useful, 
 ## People and newsletters
 
 Add individuals here as we find voices worth following. Note what each is good for.
+
+- Import AI (Jack Clark) · https://importai.substack.com · Weekly digest of AI research with policy context.
+- Simon Willison's Weblog · https://simonwillison.net · Hands-on notes on open models, local LLMs and AI tooling.
+- Andrej Karpathy · https://karpathy.ai · Clear first-principles teaching on neural networks (YouTube, GitHub).
+- Chips and Cheese · https://chipsandcheese.com · Deep, open technical analysis of CPU and GPU microarchitecture.
+- Asianometry · https://www.youtube.com/@Asianometry · Video essays on semiconductor history and supply chains.
 
 ## To evaluate
 
