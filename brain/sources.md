@@ -10,6 +10,7 @@ A starting list of places to watch. Add to it whenever something proves useful, 
 ## Ideas and long-form
 
 - Antikythera · https://antikythera.org · Berggruen Institute program on the philosophy of planetary-scale computation. Its journal (https://journal.antikythera.org) and MIT Press book series are core reading for this catalog. Publisher of *What Is Intelligence?*.
+- *Agentworld* by Benjamin Bratton (Antikythera brief) · https://cdn.antikythera.org/agentworld/Antikythera_AGENTWORLD-Brief.pdf · On a world of AI agents and the pluralized self; source for the backlog essay on Kegan's orders of mind.
 - Noema Magazine · https://www.noemamag.com · Berggruen Institute's magazine; frequent long essays on AI, minds and technology.
 - Quanta Magazine · https://www.quantamagazine.org · The best general-audience science journalism on neuroscience, computation and math.
 - The Transmitter · https://www.thetransmitter.org · Neuroscience news and essays from the Simons Foundation.
