@@ -17,7 +17,7 @@ brain/                  The catalog's knowledge base. Plain markdown.
 editions/
   000-access-to-minds/
     index.md            One edition. Frontmatter + markdown.
-public/art/<NNN>/       Art for each edition, referenced as /art/<NNN>/<file>.
+public/art/plates/      The plates: generated art, one rule each (index in src/data/plates.json).
 src/                    The Astro site (layouts, pages, styles).
 scripts/                Helpers: start a new edition, render SVG art to PNG.
 ```
@@ -39,9 +39,9 @@ Drafts (`draft: true`) show in `npm run dev` but are left out of the built site,
 
 ### Writing an edition
 
-1. `npm run new -- "Title"` creates `editions/<NNN>-<slug>/index.md` and `public/art/<NNN>/`.
+1. `npm run new -- "Title"` creates `editions/<NNN>-<slug>/index.md`.
 2. Write entries following [`brain/style.md`](brain/style.md). Each catalog entry ends with an **Access** line.
-3. Add a cover at `public/art/<NNN>/cover.png`. For SVG art, `npm run cover -- public/art/<NNN>/cover.svg` makes the PNG that email clients need (requires Playwright).
+3. Pick plates for the cover and each entry (see `/plates/` and `brain/style.md`). For new SVG art, `npm run cover -- path/to/art.svg` makes the PNG email clients need (requires Playwright).
 4. Set `draft: false` and merge to `main`. The site deploys itself.
 5. Move any backlog items you used into the "Used" list in `brain/backlog.md`.
 

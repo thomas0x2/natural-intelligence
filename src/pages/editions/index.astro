@@ -4,12 +4,20 @@ import { getEditions } from '../../editions';
 import { url, pad } from '../../site';
 const editions = await getEditions();
 ---
-<Base title="Editions" description="Every edition of the Natural Intelligence Catalog.">
-  <div class="kicker" style="margin-top:2rem">Archive</div>
-  <h1>Editions</h1>
-  <ul class="edition-list">
-    {editions.map((e) => (
-      <li><a href={url(`/editions/${e.id}/`)}><span class="num">{pad(e.data.number)}</span><span><h3>{e.data.title}</h3><p>{e.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })} · {e.data.summary}</p></span></a></li>
-    ))}
-  </ul>
+<Base title="Editions" description="Every edition of Natural Intelligence." current="editions">
+  <div class="wrap">
+    <div class="g" style="padding-top:48px;row-gap:24px;align-items:end">
+      <div class="s3 label">Archive<br />{editions.length} {editions.length === 1 ? 'edition' : 'editions'}</div>
+      <h1 class="s9 giant">Editions</h1>
+    </div>
+    <ul class="rows" style="margin-top:48px">
+      {editions.map((e) => (
+        <li><a class="g" href={url(`/editions/${e.id}/`)}>
+          <span class="s2 n">{pad(e.data.number)}</span>
+          <span class="s6"><span class="t">{e.data.title}</span></span>
+          <span class="s4 d">{e.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })}. {e.data.summary}</span>
+        </a></li>
+      ))}
+    </ul>
+  </div>
 </Base>

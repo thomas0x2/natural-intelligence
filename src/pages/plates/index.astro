@@ -1,0 +1,25 @@
+---
+import Base from '../../layouts/Base.astro';
+import { PLATES, pad2 } from '../../plates';
+import { url } from '../../site';
+---
+<Base title="Index of plates" description="Every plate in the catalog, with the rule that made it." current="plates" image={PLATES[0]?.file}>
+  <div class="wrap">
+    <div class="g" style="padding-top:48px;row-gap:24px;align-items:end">
+      <div class="s3 label">Index<br />{PLATES.length} plates</div>
+      <h1 class="s9 giant">Index of plates</h1>
+    </div>
+    <div class="g hair-top" style="margin-top:32px;row-gap:16px;align-items:baseline">
+      <p class="s3 label" style="margin:0">How to read them</p>
+      <p class="s7" style="margin:0;font-size:24px;line-height:1.25;font-weight:500;letter-spacing:-0.01em">Every plate is a small program: a rule, a seed and a loop, drawn in dots on black. None is a photograph or an illustration. Under each one is the rule that made it.</p>
+    </div>
+    <div class="pl" style="margin-top:56px">
+      {PLATES.map((p) => (
+        <figure id={`plate-${pad2(p.number)}`}>
+          <img class:list={['plate', { fit: p.fit }]} src={url(p.file)} alt={p.alt} loading="lazy" />
+          <figcaption><span class="m" style="font-size:12px;font-weight:500">{pad2(p.number)}</span><h3>{p.title}</h3><p>{p.rule}</p></figcaption>
+        </figure>
+      ))}
+    </div>
+  </div>
+</Base>

@@ -2,6 +2,7 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 import { unified } from '@astrojs/markdown-remark';
+import rehypeCatalog from './src/lib/rehype-catalog.mjs';
 
 // Where the site lives. For GitHub Pages this is https://<user>.github.io/<repo>.
 // When a custom domain is added, set SITE to it and BASE to '/'.
@@ -35,6 +36,6 @@ export default defineConfig({
   base: BASE,
   integrations: [sitemap()],
   markdown: {
-    processor: unified({ rehypePlugins: [rehypeBasePath] }),
+    processor: unified({ rehypePlugins: [rehypeCatalog, rehypeBasePath] }),
   },
 });

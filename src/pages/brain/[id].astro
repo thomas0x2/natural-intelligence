@@ -9,8 +9,18 @@ export async function getStaticPaths() {
 const { entry } = Astro.props;
 const { Content } = await render(entry);
 ---
-<Base title={entry.data.title} description={entry.data.summary}>
-  <div class="kicker" style="margin-top:2rem">Principles</div>
-  <h1>{entry.data.title}</h1>
-  <div class="prose measure"><Content /></div>
+<Base title={entry.data.title} description={entry.data.summary} current="principles">
+  <article class="wrap">
+    <div class="g" style="padding-top:48px;row-gap:24px;align-items:end">
+      <div class="s3 label">Principles</div>
+      <h1 class="s9 giant">{entry.data.title}</h1>
+    </div>
+    <div class="g hair-top" style="margin-top:32px;row-gap:16px;align-items:baseline">
+      <div class="s3 label">The catalog's brain</div>
+      <p class="text-col deck">{entry.data.summary}</p>
+    </div>
+    <div class="g" style="margin-top:56px">
+      <div class="prose text-col"><Content /></div>
+    </div>
+  </article>
 </Base>

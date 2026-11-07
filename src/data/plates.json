@@ -1,0 +1,242 @@
+[
+  {
+    "number": 1,
+    "title": "Sierpiński carpet",
+    "rule": "Remove the middle ninth of every square, forever. The area tends to zero.",
+    "alt": "Sierpiński carpet of cyan dots",
+    "file": "/art/plates/01-sierpinski-carpet.jpg",
+    "fit": false
+  },
+  {
+    "number": 2,
+    "title": "Rule 30",
+    "rule": "new = left XOR (centre OR right), from a single lit cell.",
+    "alt": "Rule 30 triangle of grey and magenta dots",
+    "file": "/art/plates/02-rule-30.jpg",
+    "fit": true
+  },
+  {
+    "number": 3,
+    "title": "Packard snowflake",
+    "rule": "A hexagonal cell freezes when exactly one neighbour is frozen.",
+    "alt": "Hexagonal snowflake of grey dots with cyan tips",
+    "file": "/art/plates/03-packard-snowflake.jpg",
+    "fit": true
+  },
+  {
+    "number": 4,
+    "title": "Diffusion-limited aggregation",
+    "rule": "Random walkers stick wherever they touch the cluster.",
+    "alt": "Branching grey cluster with blue tips",
+    "file": "/art/plates/04-diffusion-limited-aggregation.jpg",
+    "fit": true
+  },
+  {
+    "number": 5,
+    "title": "Langton's ant",
+    "rule": "White: turn right. Black: turn left. Flip the square, step.",
+    "alt": "Langton's ant cluster with diagonal highways",
+    "file": "/art/plates/05-langtons-ant.jpg",
+    "fit": true
+  },
+  {
+    "number": 6,
+    "title": "Flocking",
+    "rule": "Separation, alignment, cohesion. And one predator.",
+    "alt": "Flock of dot birds in pink, green and cyan",
+    "file": "/art/plates/06-flocking.jpg",
+    "fit": false
+  },
+  {
+    "number": 7,
+    "title": "Physarum",
+    "rule": "Agents sense trail ahead, turn to the strongest, step, deposit more.",
+    "alt": "Glowing blue and yellow veins of a slime mould network",
+    "file": "/art/plates/07-physarum.jpg",
+    "fit": false
+  },
+  {
+    "number": 8,
+    "title": "Recursive trees",
+    "rule": "Every branch is a smaller, turned copy of the whole tree.",
+    "alt": "Two recursive trees, blue to green to pink",
+    "file": "/art/plates/08-recursive-trees.jpg",
+    "fit": false
+  },
+  {
+    "number": 9,
+    "title": "Reaction–diffusion",
+    "rule": "Gray–Scott model, feed 0.0545, kill 0.062. Colour marks when each cell switched on.",
+    "alt": "Gray–Scott reaction-diffusion bands in pink, yellow and cyan",
+    "file": "/art/plates/09-reaction-diffusion.jpg",
+    "fit": false
+  },
+  {
+    "number": 10,
+    "title": "Sunflower",
+    "rule": "Seed n at n × 137.5°, radius ∝ √n. Spirals of 34 and 55.",
+    "alt": "Sunflower spirals of pink and yellow dots",
+    "file": "/art/plates/10-sunflower.jpg",
+    "fit": false
+  },
+  {
+    "number": 11,
+    "title": "Nautilus shell",
+    "rule": "Logarithmic spiral, ×φ² per turn, 34 chamber walls per turn.",
+    "alt": "Nautilus shell spiral with coloured chamber walls",
+    "file": "/art/plates/11-nautilus-shell.jpg",
+    "fit": false
+  },
+  {
+    "number": 12,
+    "title": "Double helix",
+    "rule": "A–T in pink and yellow, G–C in blue and cyan, one rung per base pair.",
+    "alt": "DNA double helix in white dots with coloured rungs",
+    "file": "/art/plates/12-double-helix.jpg",
+    "fit": false
+  },
+  {
+    "number": 13,
+    "title": "Contact map",
+    "rule": "A generated fold, helices at 3.6 residues per turn; residue i lights up where it touches j.",
+    "alt": "Protein contact map: green blocks and diagonals of dots",
+    "file": "/art/plates/13-contact-map.jpg",
+    "fit": false
+  },
+  {
+    "number": 14,
+    "title": "Black smoker",
+    "rule": "Mineral plumes rising from vents on the deep-sea floor.",
+    "alt": "Two hydrothermal vents with rising plumes of dots",
+    "file": "/art/plates/14-black-smoker.jpg",
+    "fit": false
+  },
+  {
+    "number": 15,
+    "title": "Vent coral",
+    "rule": "Trunks fork into smaller tilted copies; every tip is a chimney.",
+    "alt": "A coral of vents in dim blue and pink dots",
+    "file": "/art/plates/15-vent-coral.jpg",
+    "fit": false
+  },
+  {
+    "number": 16,
+    "title": "Brain slice",
+    "rule": "Folds where a noise field crosses zero; activity drifts on top.",
+    "alt": "Brain MRI slice with false-colour activity",
+    "file": "/art/plates/16-brain-slice.jpg",
+    "fit": false
+  },
+  {
+    "number": 17,
+    "title": "Rings",
+    "rule": "Concentric interference rings, like contour lines on a loss surface.",
+    "alt": "Concentric green interference rings",
+    "file": "/art/plates/17-rings.jpg",
+    "fit": false
+  },
+  {
+    "number": 18,
+    "title": "Loss landscape",
+    "rule": "Gradient descent with momentum, settling in a valley, then starting over.",
+    "alt": "Dotted terrain with a white descending path",
+    "file": "/art/plates/18-loss-landscape.jpg",
+    "fit": false
+  },
+  {
+    "number": 19,
+    "title": "Embedding space",
+    "rule": "Scattered points pulled into six clusters, three blobs and three filaments.",
+    "alt": "Clusters of coloured dots in space",
+    "file": "/art/plates/19-embedding-space.jpg",
+    "fit": false
+  },
+  {
+    "number": 20,
+    "title": "Denoising",
+    "rule": "Pure noise, seven seconds of denoising, a mountain, then noise again.",
+    "alt": "A dotted mountain peak with a moon",
+    "file": "/art/plates/20-denoising.jpg",
+    "fit": false
+  },
+  {
+    "number": 21,
+    "title": "Aligning field",
+    "rule": "Post-training as a picture: a wave turns every stroke the same way.",
+    "alt": "A field of pink strokes turning to one direction",
+    "file": "/art/plates/21-aligning-field.jpg",
+    "fit": false
+  },
+  {
+    "number": 22,
+    "title": "Through the grid",
+    "rule": "An endless 3D lattice, flown through at 1.2 layers per second.",
+    "alt": "Endless 3D grid of glowing dots",
+    "file": "/art/plates/22-through-the-grid.jpg",
+    "fit": false
+  },
+  {
+    "number": 23,
+    "title": "Chip die",
+    "rule": "A recursive floorplan whose core is a copy of the whole chip.",
+    "alt": "Chip die floorplan in neon colours",
+    "file": "/art/plates/23-chip-die.jpg",
+    "fit": false
+  },
+  {
+    "number": 24,
+    "title": "Grid wave",
+    "rule": "A halftone wave rolling through a field of dots.",
+    "alt": "Halftone wave of blue dots",
+    "file": "/art/plates/24-grid-wave.jpg",
+    "fit": false
+  },
+  {
+    "number": 25,
+    "title": "Turbulent ocean",
+    "rule": "Ridged noise in three octaves, looping every twelve seconds.",
+    "alt": "Turbulent ocean of indigo to cyan dots",
+    "file": "/art/plates/25-turbulent-ocean.jpg",
+    "fit": false
+  },
+  {
+    "number": 26,
+    "title": "Strange attractor",
+    "rule": "Lorenz system: σ = 10, ρ = 28, β = 8⁄3.",
+    "alt": "Lorenz attractor in coloured dots",
+    "file": "/art/plates/26-strange-attractor.jpg",
+    "fit": false
+  },
+  {
+    "number": 27,
+    "title": "Spiral galaxy",
+    "rule": "Two logarithmic arms, a bulge, a haze of disc stars; one turn every two minutes.",
+    "alt": "Spiral galaxy with a golden core",
+    "file": "/art/plates/27-spiral-galaxy.jpg",
+    "fit": false
+  },
+  {
+    "number": 28,
+    "title": "Synchronised arms",
+    "rule": "Every joint swings on a sine; the phase between neighbours drifts into unison.",
+    "alt": "Row of pink robot arms moving in unison",
+    "file": "/art/plates/28-synchronised-arms.jpg",
+    "fit": false
+  },
+  {
+    "number": 29,
+    "title": "Robot arm",
+    "rule": "Forward kinematics in 3D: a jointed arm reaching for a cube.",
+    "alt": "Magenta 3D robot arm reaching for a cube",
+    "file": "/art/plates/29-robot-arm.jpg",
+    "fit": false
+  },
+  {
+    "number": 30,
+    "title": "Moiré",
+    "rule": "Two identical dot lattices, rotated a few degrees apart.",
+    "alt": "Moiré of pink and cyan dot lattices",
+    "file": "/art/plates/30-moire.jpg",
+    "fit": false
+  }
+]

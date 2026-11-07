@@ -1,9 +1,9 @@
 // Site-wide settings. Edit these as the catalog grows.
-export const SITE_TITLE = 'Natural Intelligence Catalog';
-export const SITE_TAGLINE = 'Access to tools and ideas for minds, natural and artificial.';
+export const SITE_TITLE = 'Natural Intelligence';
+export const SITE_TAGLINE = 'Access to tools and ideas for the age of thinking machines.';
 
 // Where readers subscribe by email. Leave empty until a newsletter account exists;
-// the subscribe box then points readers at the RSS feed instead.
+// the subscribe band then points readers at the RSS feed instead.
 export const SUBSCRIBE_URL = '';
 
 export const REPO_URL = 'https://github.com/thomas0x2/natural-intelligence';

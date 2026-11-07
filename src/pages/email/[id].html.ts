@@ -17,7 +17,7 @@ export async function GET({ props, site }: APIContext) {
   const d = entry.data;
   const origin = site!.origin;
   const webUrl = new URL(url(`/editions/${entry.id}/`), site).href;
-  const ink = '#1a1916', paper = '#f3efe4', soft = '#e9e3d3', sans = "'Helvetica Neue',Helvetica,Arial,sans-serif", serif = 'Georgia,serif';
+  const ink = '#0B0B0B', paper = '#F2F2EE', soft = '#E4E4DE', sans = "'Schibsted Grotesk','Helvetica Neue',Helvetica,Arial,sans-serif", serif = sans;
 
   let body = (entry.rendered?.html ?? '').replace(/(src|href)="\/(?!\/)/g, `$1="${origin}/`);
   // Inline the catalog styles onto the elements email clients will keep.
@@ -26,11 +26,11 @@ export async function GET({ props, site }: APIContext) {
     .replace(/<h3([^>]*)>/g, `<h3$1 style="font-family:${sans};font-size:20px;margin:28px 0 8px;">`)
     .replace(/<p>/g, `<p style="font-family:${serif};font-size:17px;line-height:1.55;margin:0 0 14px;">`)
     .replace(/<blockquote>/g, `<blockquote style="margin:12px 0 28px;padding:10px 12px;border:1px solid ${ink};background:${soft};font-family:${sans};font-size:13px;">`)
-    .replace(/<img /g, `<img style="max-width:100%;height:auto;border:1px solid ${ink};" `)
+    .replace(/<img /g, `<img style="max-width:100%;height:auto;background:#000;" `)
     .replace(/<a /g, `<a style="color:${ink};" `);
 
   const cover = d.cover
-    ? `<img src="${new URL(url(d.cover), site).href}" alt="${esc(d.coverAlt ?? '')}" width="600" style="width:100%;max-width:600px;height:auto;border:1px solid ${ink};display:block;" />` +
+    ? `<img src="${new URL(url(d.cover), site).href}" alt="${esc(d.coverAlt ?? '')}" width="600" style="width:100%;max-width:600px;height:auto;background:#000;display:block;" />` +
       (d.coverCredit ? `<p style="font-family:${sans};font-size:11px;color:#4a463d;margin:6px 0 0;">${esc(d.coverCredit)}</p>` : '')
     : '';
 

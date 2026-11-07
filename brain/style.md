@@ -27,20 +27,31 @@ Two to five short paragraphs. What it is, what it lets you do, what it is like t
 
 The Access line always has, in order: link, license (or "Closed"), cost, and what you need to use it.
 
-## Art
+## Art and layout
 
-- Art for an edition lives in `public/art/<edition number>/`, and is referenced in markdown as `/art/<number>/<file>`.
-- Every image gets alt text that describes it for someone who cannot see it.
-- Every image gets a credit and license in its caption. Prefer work that is CC-licensed or made for the catalog.
-- Prefer SVG for diagrams and generative pieces. Keep photos under about 500 KB each so emails stay light.
-- A *plate* is a full-width image. Write it as:
+The site is set in Schibsted Grotesk and IBM Plex Mono on paper (#F2F2EE) and ink (#0B0B0B). All art is **plates**: small programs, a rule, a seed and a loop, drawn in dots on black. The plate index lives in `src/data/plates.json` and the images in `public/art/plates/`. New plates get the next number and a one-line rule.
+
+How markdown becomes the catalog layout (see `src/lib/rehype-catalog.mjs`):
+
+- Each `##` is a section. A `##` that contains `###` entries is a numbered catalog section; one without entries (Purpose, Letters) is a text section.
+- Text between the `##` and the first `###` is the section's short intro.
+- An image in that intro becomes a full-width lead plate. Its title is the caption: `"PLATE 23 · Chip die. The rule."`
+- Each `###` is a card. An image straight after the heading is the card's plate; its title is the label: `"Plate 16 · Brain slice"`.
+- The `> **Access** · ...` line sits at the bottom of the card.
 
 ```markdown
-<figure class="plate">
-  <img src="/art/000/cover.svg" alt="Description of the image" />
-  <figcaption>Title. Artist, year. License.</figcaption>
-</figure>
+### Name of the thing
+
+![Alt text describing the plate](/art/plates/16-brain-slice.jpg "Plate 16 · Brain slice")
+
+What it is, why it matters, its limits.
+
+> **Access** · [example.org](https://example.org) · Open source (MIT) · Free · Runs on a laptop
 ```
+
+- Every image gets alt text that describes it for someone who cannot see it.
+- Aim for three entries per section so the three-column grid fills.
+- The edition cover is a plate too: set `cover`, `coverAlt` and `coverCredit` ("PLATE 07 · Physarum. The rule.") in the frontmatter.
 
 ## Names and terms
 

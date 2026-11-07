@@ -3,29 +3,57 @@ import Base from '../../layouts/Base.astro';
 import { render } from 'astro:content';
 import { getEditions } from '../../editions';
 import { url, pad } from '../../site';
+import { pad2 } from '../../plates';
 
 export async function getStaticPaths() {
   const editions = await getEditions();
   return editions.map((entry) => ({ params: { id: entry.id }, props: { entry } }));
 }
 const { entry } = Astro.props;
-const { Content } = await render(entry);
+const { Content, headings } = await render(entry);
 const d = entry.data;
+const date = d.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
+const html = entry.rendered?.html ?? '';
+// Contents: the sections that hold catalog entries, in order.
+const sectionTitles = [...html.matchAll(/class="sec sec-catalog"><div class="sec-head g"><div class="sec-num m">[^<]*<\/div><h2 id="([^"]+)">([^<]*)<\/h2>/g)].map((m) => ({ id: m[1], title: m[2] }));
+const contents = sectionTitles.length ? sectionTitles : headings.filter((h) => h.depth === 2).map((h) => ({ id: h.slug, title: h.text }));
+const [capNum, ...capRest] = (d.coverCredit ?? '').split(' · ');
 ---
-<Base title={`${pad(d.number)} · ${d.title}`} description={d.summary} image={d.cover}>
+<Base title={`${pad(d.number)} · ${d.title}`} description={d.summary} image={d.cover} current="editions">
   <article>
-    <div class="kicker" style="margin-top:2rem">
-      Edition {pad(d.number)} · {d.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })}{d.draft && ' · Draft'}
-    </div>
-    <h1>{d.title}</h1>
-    <p class="measure" style="font-size:1.15rem">{d.summary}</p>
+    <header class="wrap" style="padding-top:48px">
+      <div class="g" style="row-gap:24px;align-items:end">
+        <div class="s3 label">Edition {pad(d.number)}<br />{date}{d.draft && ' · Draft'}</div>
+        <h1 class="s9 giant">{d.title}</h1>
+      </div>
+      <div class="g hair-top" style="margin-top:32px;row-gap:16px;align-items:baseline">
+        <div class="s3 label">{contents.length} sections<br />{(html.match(/<article class="card"/g) ?? []).length} entries</div>
+        <p class="text-col deck">{d.summary}</p>
+      </div>
+    </header>
+
     {d.cover && (
-      <figure class="cover">
-        <img src={url(d.cover)} alt={d.coverAlt ?? ''} />
-        {d.coverCredit && <figcaption>{d.coverCredit}</figcaption>}
+      <figure class="wrap" style="margin-top:56px">
+        <img class="plate" src={url(d.cover)} alt={d.coverAlt ?? ''} style="height:clamp(260px,42vw,620px);object-fit:contain" />
+        {d.coverCredit && <figcaption class="plate-cap m">{capRest.length ? <><b>{capNum}</b><span>{capRest.join(' · ')}</span></> : <span>{d.coverCredit}</span>}</figcaption>}
       </figure>
     )}
-    <div class="prose measure">
+
+    {contents.length > 1 && (
+      <nav class="wrap" aria-labelledby="contents-h" style="margin-top:96px">
+        <div class="g rule-top" style="row-gap:8px;align-items:baseline">
+          <h2 id="contents-h" class="s4 label" style="margin:0;font-weight:500">Contents</h2>
+          <div class="s8 label hide-s">Section</div>
+        </div>
+        <ul class="rows">
+          {contents.map((c, i) => (
+            <li><a class="g" href={`#${c.id}`}><span class="s4 n">{pad2(i + 1)}</span><span class="s8"><span class="t">{c.title}</span></span></a></li>
+          ))}
+        </ul>
+      </nav>
+    )}
+
+    <div class="wrap edition">
       <Content />
     </div>
   </article>

@@ -13,16 +13,16 @@ const dir = `editions/${nnn}-${slug}`;
 if (existsSync(dir)) { console.error(`${dir} already exists`); process.exit(1); }
 
 mkdirSync(dir, { recursive: true });
-mkdirSync(`public/art/${nnn}`, { recursive: true });
+
 const today = new Date().toISOString().slice(0, 10);
 writeFileSync(`${dir}/index.md`, `---
 title: ${JSON.stringify(title)}
 number: ${number}
 date: ${today}
 summary: One or two sentences on what this edition is about.
-cover: /art/${nnn}/cover.png
+cover: /art/plates/07-physarum.jpg
 coverAlt: Describe the cover image for someone who cannot see it.
-coverCredit: "Title. Artist, year. License."
+coverCredit: "PLATE NN · Title. The rule that made it."
 topics: []
 draft: true
 ---
@@ -33,7 +33,11 @@ A short opening note for this edition.
 
 ## Understanding Minds
 
+Optional: one sentence introducing the section.
+
 ### Name of the thing
+
+![Describe the plate](/art/plates/16-brain-slice.jpg "Plate 16 · Brain slice")
 
 What it is, what it lets you do, what it is like to use, what to watch out for.
 
@@ -42,4 +46,4 @@ What it is, what it lets you do, what it is like to use, what to watch out for.
 ## Letters
 
 `);
-console.log(`Created ${dir}/index.md and public/art/${nnn}/. Put the cover at public/art/${nnn}/cover.png.`);
+console.log(`Created ${dir}/index.md. Pick plates from /plates/ for the cover and entries.`);

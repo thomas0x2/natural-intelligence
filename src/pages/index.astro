@@ -2,57 +2,139 @@
 import Base from '../layouts/Base.astro';
 import { getCollection } from 'astro:content';
 import { getEditions } from '../editions';
-import { SITE_TAGLINE, SUBSCRIBE_URL, url, pad } from '../site';
+import { PLATES, pad2 } from '../plates';
+import { url, pad } from '../site';
 
 const editions = await getEditions();
 const latest = editions[0];
 const brain = (await getCollection('brain', ({ data }) => data.public)).sort((a, b) => a.data.order - b.data.order);
+const entries = latest ? (latest.rendered?.html.match(/<article class="card"/g) ?? []).length : 0;
+const sections = latest ? (latest.rendered?.html.match(/class="sec sec-catalog"/g) ?? []).length : 0;
 ---
-<Base image={latest?.data.cover}>
-  {latest && (
-    <section class="lead">
-      {latest.data.cover && (
-        <figure class="cover">
-          <a href={url(`/editions/${latest.id}/`)}><img src={url(latest.data.cover)} alt={latest.data.coverAlt ?? ''} /></a>
-          {latest.data.coverCredit && <figcaption>{latest.data.coverCredit}</figcaption>}
-        </figure>
-      )}
-      <div class="lead-text">
-        <div class="kicker">Latest · Edition {pad(latest.data.number)}</div>
-        <h1><a href={url(`/editions/${latest.id}/`)} style="text-decoration:none">{latest.data.title}</a></h1>
-        <p>{latest.data.summary}</p>
-        <p><a href={url(`/editions/${latest.id}/`)}>Read the edition →</a></p>
+<Base current="catalog" image={latest?.data.cover}>
+  <Fragment slot="masthead">
+    <h1 class="mega">Natural<br />Intelligence</h1>
+    <div class="g hair-top" style="margin-top:28px;row-gap:12px;align-items:baseline">
+      <p class="s8 deck" style="font-size:30px;line-height:1.12">Access to tools and ideas for the age of thinking machines.</p>
+      <p class="s4 label" style="margin:0">{latest ? `Edition ${pad(latest.data.number)} · ${sections} sections · ${entries} entries · ${PLATES.length} plates` : `${PLATES.length} plates`}</p>
+    </div>
+  </Fragment>
+
+  <section class="wrap" aria-label="Plate 01 and statement of purpose" style="margin-top:40px">
+    <div class="g" style="row-gap:40px">
+      <figure class="s8">
+        <div class="live">
+          <canvas id="plate01" role="img" aria-label="Live plate: an endless zoom into a Sierpiński carpet of small cyan dots, falling through square hole after square hole"></canvas>
+          <span class="tag m">Live</span>
+        </div>
+        <figcaption class="plate-cap m"><b>PLATE 01</b><span>Sierpiński carpet, zoomed ×3 every nine seconds. Each step removes the middle ninth of every square: the area tends to zero while the edges grow without end.</span></figcaption>
+      </figure>
+      <div class="s4" style="display:flex;flex-direction:column;gap:28px">
+        <div>
+          <h2 class="label rule-top" style="margin:0 0 8px;padding-top:8px;font-weight:500">Purpose</h2>
+          <p style="margin:0;font-size:18px;line-height:1.45">Intelligence is no longer only something we study. We grow it, train it, and live beside it. This catalog exists so that one curious person can follow along, and build, without a lab, a title or anyone's permission.</p>
+        </div>
+        <div>
+          <h2 class="label rule-top" style="margin:0 0 8px;padding-top:8px;font-weight:500">Function</h2>
+          <p style="margin:0 0 10px;font-size:18px;line-height:1.45">An evaluation and access device. An entry earns its place when it is:</p>
+          <ol class="fn">
+            <li><span>1.</span><span>Useful as a tool or as a lens.</span></li>
+            <li><span>2.</span><span>Relevant to how intelligence arises, in cells or in silicon.</span></li>
+            <li><span>3.</span><span>Open, or the best there is when nothing open exists.</span></li>
+            <li><span>4.</span><span>Within reach of an ordinary laptop.</span></li>
+          </ol>
+        </div>
+        {latest && (
+          <a class="block" href={url(`/editions/${latest.id}/`)}>
+            <span class="label">Latest edition · {pad(latest.data.number)} →</span>
+            <span class="t">{latest.data.title}</span>
+          </a>
+        )}
       </div>
-    </section>
-  )}
-
-  <section class="section">
-    <h2>About</h2>
-    <p class="measure">{SITE_TAGLINE} A catalog in the spirit of the Whole Earth Catalog, for the late 2020s: open models, brains, chips, and the ideas that connect them. Open things first. Every entry tells you how to get access.</p>
-  </section>
-
-  <section class="section">
-    <h2>What we believe</h2>
-    <div class="brain-grid">
-      {brain.map((doc) => (
-        <a href={url(`/brain/${doc.id}/`)}><h3>{doc.data.title}</h3><p>{doc.data.summary}</p></a>
-      ))}
     </div>
   </section>
 
-  <section class="section">
-    <h2>All editions</h2>
-    <ul class="edition-list">
+  <section class="wrap" aria-labelledby="ed-h" style="margin-top:96px">
+    <div class="g rule-top" style="row-gap:8px;align-items:baseline">
+      <h2 id="ed-h" class="s4 label" style="margin:0;font-weight:500">Editions</h2>
+      <div class="s6 label hide-s">Title</div>
+      <div class="s2 label hide-s" style="text-align:right">Date</div>
+    </div>
+    <ul class="rows">
       {editions.map((e) => (
-        <li><a href={url(`/editions/${e.id}/`)}><span class="num">{pad(e.data.number)}</span><span><h3>{e.data.title}</h3><p>{e.data.summary}</p></span></a></li>
+        <li><a class="g" href={url(`/editions/${e.id}/`)}>
+          <span class="s4 n">{pad(e.data.number)}</span>
+          <span class="s6"><span class="t">{e.data.title}</span></span>
+          <span class="s2 n hide-s" style="text-align:right">{e.data.date.toLocaleDateString('en-US', { month: 'short', year: 'numeric', timeZone: 'UTC' })}</span>
+        </a></li>
       ))}
     </ul>
   </section>
 
-  <section class="subscribe">
-    <h2>Get each edition by email</h2>
-    {SUBSCRIBE_URL
-      ? <p><a href={SUBSCRIBE_URL}>Subscribe here</a>. Free, no tracking, unsubscribe any time.</p>
-      : <p>Email subscriptions open soon. Until then, follow along with the <a href={url('/rss.xml')}>RSS feed</a>.</p>}
+  <section class="wrap" aria-labelledby="bel-h" style="margin-top:96px">
+    <div class="g rule-top" style="row-gap:8px;align-items:baseline">
+      <h2 id="bel-h" class="s4 label" style="margin:0;font-weight:500">What we believe</h2>
+    </div>
+    <ul class="rows">
+      {brain.map((d, i) => (
+        <li><a class="g" href={url(`/brain/${d.id}/`)}>
+          <span class="s4 n">{pad2(i + 1)}</span>
+          <span class="s6"><span class="t">{d.data.title}</span></span>
+          <span class="s2 d hide-s">{d.data.summary}</span>
+        </a></li>
+      ))}
+    </ul>
+  </section>
+
+  <section class="wrap" aria-labelledby="plates-h" style="padding-top:120px">
+    <div class="g rule-top" style="row-gap:16px;align-items:baseline">
+      <div class="s2 label">Index</div>
+      <h2 id="plates-h" class="s6 big">Thirty plates</h2>
+      <p class="s4" style="margin:0;font-size:17px;line-height:1.45">Every image in this catalog is a small program: a rule, a seed and a loop. <a href={url('/plates/')}>See all thirty, with their rules →</a></p>
+    </div>
+    <div class="thumbs" style="margin-top:32px">
+      {PLATES.map((p) => (
+        <a href={url(`/plates/#plate-${pad2(p.number)}`)}><img class="plate" src={url(p.file)} alt={`Plate ${pad2(p.number)}, ${p.title}`} loading="lazy" /></a>
+      ))}
+    </div>
   </section>
 </Base>
+
+<script is:inline>
+  // Plate 01, live: a Sierpinski carpet zoomed x3 every 9 s about its centre. Dots of the next finer
+  // level fade in during each cycle, so the loop is seamless.
+  (function () {
+    var cv = document.getElementById('plate01');
+    if (!cv || !cv.getContext) return;
+    var ctx = cv.getContext('2d');
+    function fit() {
+      var d = Math.min(window.devicePixelRatio || 1, 2);
+      var w = Math.round(cv.clientWidth * d), h = Math.round(cv.clientHeight * d);
+      if (cv.width !== w || cv.height !== h) { cv.width = w; cv.height = h; }
+    }
+    function draw(t) {
+      var W = cv.width, H = cv.height, cx = W / 2, cy = H / 2;
+      ctx.fillStyle = '#000'; ctx.fillRect(0, 0, W, H);
+      var k = W / 1080, p = (t / 9) % 1, g = 12 * k * Math.pow(3, p), r = Math.max(1.2, 2.4 * k);
+      var nx = Math.ceil(cx / g) + 1, ny = Math.ceil(cy / g) + 1;
+      for (var pass = 0; pass < 2; pass++) {
+        ctx.fillStyle = '#29F0FF'; ctx.globalAlpha = pass ? p : 1;
+        for (var j = -ny; j <= ny; j++) for (var i = -nx; i <= nx; i++) {
+          var A = Math.abs(i), B = Math.abs(j), fine = (A % 3 !== 0) || (B % 3 !== 0);
+          if ((pass === 1) !== fine) continue;
+          var a = A, b = B, hole = false;
+          for (var lv = 0; lv < 8; lv++) { if (a % 3 === 1 && b % 3 === 1) { hole = true; break; } a = (a / 3) | 0; b = (b / 3) | 0; }
+          if (hole) continue;
+          ctx.fillRect(cx + i * g - r, cy + j * g - r, 2 * r, 2 * r);
+        }
+      }
+      ctx.globalAlpha = 1;
+    }
+    fit();
+    if (window.ResizeObserver) new ResizeObserver(fit).observe(cv);
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) { draw(3); return; }
+    var t0 = null;
+    function loop(ts) { if (t0 === null) t0 = ts; draw((ts - t0) / 1000); requestAnimationFrame(loop); }
+    requestAnimationFrame(loop);
+  })();
+</script>
