@@ -28,4 +28,6 @@ Drop ideas here as they come. When one goes into an edition, move it to the "Use
 
 ## Used
 
-- (none yet)
+- *What Is Intelligence?* by Blaise Agüera y Arcas · Edition 000
+- Paperclip (paperclipai/paperclip) · Edition 000
+- FlyWire, OLMo, llama.cpp, Tiny Tapeout, Neuromatch Academy · Edition 000

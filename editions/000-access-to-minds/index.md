@@ -2,11 +2,11 @@
 title: Access to Minds
 number: 0
 date: 2026-11-07
-summary: The preview issue. What this catalog is for, and five tools that let one person look inside a mind, run one, or build the silicon for one.
+summary: The first issue. What this catalog is for, a book that asks what intelligence is, and tools that let one person look inside a mind, run one, or build the silicon for one.
 cover: /art/000/cover.png
 coverAlt: Ink drawing of branching neurons on the left whose axons stretch right and turn into a right-angled circuit board grid. One neuron is circled in orange.
 coverCredit: "Plate 0: Dendrite to Trace. Generative drawing made for the catalog, 2026. CC BY 4.0."
-topics: [minds, neuro, ml, hardware, learning]
+topics: [minds, neuro, ml, tools, hardware, learning]
 draft: false
 ---
 
@@ -18,9 +18,19 @@ Fifty-eight years ago a catalog of tools told its readers that the power to shap
 
 Every issue follows the same rule. If an item does not make a capable, curious person more able to understand or build something, it does not go in. Open things come first. Every entry ends with an **Access** line that tells you where to get it, what it costs and what you need to run it.
 
-This is issue zero, a preview of the format. Read [the principles](/brain/principles/) for what we believe and why.
+This is issue zero. Read [the principles](/brain/principles/) for what we believe and why.
 
 ## Understanding Minds
+
+### What Is Intelligence? by Blaise Agüera y Arcas
+
+If this catalog had a founding text for the late 2020s, this might be it. Agüera y Arcas, a longtime AI research leader at Google, argues that life is computation, that intelligence is prediction, and that the line between "real" and "artificial" minds is far less sharp than either the boosters or the skeptics assume. He builds the case from the origins of life and symbiosis up through brains and on to transformers, and he is openly functionalist about what follows: if a system does what a mind does, it is worth taking seriously as one.
+
+You do not have to agree with all of it. You will come away with a sharper sense of what you actually believe about minds, which is the point of a book like this. Unusually for a major press, the whole thing is free to read online, with richly illustrated chapters designed for the web.
+
+> **Access** · [whatisintelligence.antikythera.org](https://whatisintelligence.antikythera.org/) · Free to read online; print edition from The MIT Press (2025) · A browser or a bookshelf
+
+## The Brain
 
 ### The fly that fits on your desk
 
@@ -45,6 +55,14 @@ Many "open" models release only the final weights. Ai2's OLMo family releases th
 A plain C and C++ program that runs open-weight language models on ordinary hardware, including laptops without a dedicated GPU. It is the engine underneath a large share of local AI tools. If you want a model that runs on your own machine, offline, and answers to no one's terms of service, start here.
 
 > **Access** · [github.com/ggml-org/llama.cpp](https://github.com/ggml-org/llama.cpp) · Open source (MIT) · Free · Any recent laptop
+
+### Paperclip
+
+An open-source system for running a whole team of AI agents as if it were a company: agents get roles, goals, budgets and a reporting line, and a dashboard lets one person watch, approve and redirect the work. It drew tens of thousands of stars on GitHub this year, and it is the clearest working picture yet of what "a company made of software" looks like in practice.
+
+We list it because it is open and inspectable, not because the vision is settled. Running it is a good way to form your own view of how far agent autonomy goes today, and where it still needs a human. Watch the bills: agents spend real money on model calls.
+
+> **Access** · [github.com/paperclipai/paperclip](https://github.com/paperclipai/paperclip) · Open source (MIT) · Free, plus your model API costs · Node.js on a laptop or server
 
 ## Silicon
 

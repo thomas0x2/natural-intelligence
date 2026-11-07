@@ -30,6 +30,14 @@ A starting list of places to watch. Add to it whenever something proves useful, 
 - BrainGlobe · https://brainglobe.info · Open-source tools for brain atlases and image analysis.
 - Thousand Brains Project · https://thousandbrains.org · Open-source sensorimotor learning based on cortical theory.
 
+## Books
+
+- *What Is Intelligence?* by Blaise Agüera y Arcas (MIT Press, 2025) · https://whatisintelligence.antikythera.org · Functionalist case that life is computation and intelligence is prediction. Free online. Featured in Edition 000.
+
+## Agents and AI tooling
+
+- Paperclip · https://github.com/paperclipai/paperclip · Open-source (MIT) orchestration for teams of AI agents run like a company. Featured in Edition 000.
+
 ## Hardware and silicon
 
 - Tiny Tapeout · https://tinytapeout.com · Get your own chip design fabricated cheaply.
