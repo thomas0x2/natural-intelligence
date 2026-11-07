@@ -1,0 +1,16 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+import { url } from '../../site';
+const docs = (await getCollection('brain', ({ data }) => data.public)).sort((a, b) => a.data.order - b.data.order);
+---
+<Base title="Principles" description="The vision, principles and topic map behind the catalog.">
+  <div class="kicker" style="margin-top:2rem">The catalog's brain</div>
+  <h1>Principles</h1>
+  <p class="measure">What this catalog is for, what it believes, and how it is organized. These documents live in the repository next to every edition, and change in the open.</p>
+  <div class="brain-grid">
+    {docs.map((doc) => (
+      <a href={url(`/brain/${doc.id}/`)}><h3>{doc.data.title}</h3><p>{doc.data.summary}</p></a>
+    ))}
+  </div>
+</Base>

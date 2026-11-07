@@ -1,0 +1,15 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getEditions } from '../../editions';
+import { url, pad } from '../../site';
+const editions = await getEditions();
+---
+<Base title="Editions" description="Every edition of the Natural Intelligence Catalog.">
+  <div class="kicker" style="margin-top:2rem">Archive</div>
+  <h1>Editions</h1>
+  <ul class="edition-list">
+    {editions.map((e) => (
+      <li><a href={url(`/editions/${e.id}/`)}><span class="num">{pad(e.data.number)}</span><span><h3>{e.data.title}</h3><p>{e.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })} · {e.data.summary}</p></span></a></li>
+    ))}
+  </ul>
+</Base>

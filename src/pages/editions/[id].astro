@@ -1,0 +1,32 @@
+---
+import Base from '../../layouts/Base.astro';
+import { render } from 'astro:content';
+import { getEditions } from '../../editions';
+import { url, pad } from '../../site';
+
+export async function getStaticPaths() {
+  const editions = await getEditions();
+  return editions.map((entry) => ({ params: { id: entry.id }, props: { entry } }));
+}
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const d = entry.data;
+---
+<Base title={`${pad(d.number)} · ${d.title}`} description={d.summary} image={d.cover}>
+  <article>
+    <div class="kicker" style="margin-top:2rem">
+      Edition {pad(d.number)} · {d.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })}{d.draft && ' · Draft'}
+    </div>
+    <h1>{d.title}</h1>
+    <p class="measure" style="font-size:1.15rem">{d.summary}</p>
+    {d.cover && (
+      <figure class="cover">
+        <img src={url(d.cover)} alt={d.coverAlt ?? ''} />
+        {d.coverCredit && <figcaption>{d.coverCredit}</figcaption>}
+      </figure>
+    )}
+    <div class="prose measure">
+      <Content />
+    </div>
+  </article>
+</Base>

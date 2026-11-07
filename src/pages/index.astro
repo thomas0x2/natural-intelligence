@@ -1,0 +1,58 @@
+---
+import Base from '../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+import { getEditions } from '../editions';
+import { SITE_TAGLINE, SUBSCRIBE_URL, url, pad } from '../site';
+
+const editions = await getEditions();
+const latest = editions[0];
+const brain = (await getCollection('brain', ({ data }) => data.public)).sort((a, b) => a.data.order - b.data.order);
+---
+<Base image={latest?.data.cover}>
+  {latest && (
+    <section class="lead">
+      {latest.data.cover && (
+        <figure class="cover">
+          <a href={url(`/editions/${latest.id}/`)}><img src={url(latest.data.cover)} alt={latest.data.coverAlt ?? ''} /></a>
+          {latest.data.coverCredit && <figcaption>{latest.data.coverCredit}</figcaption>}
+        </figure>
+      )}
+      <div class="lead-text">
+        <div class="kicker">Latest · Edition {pad(latest.data.number)}</div>
+        <h1><a href={url(`/editions/${latest.id}/`)} style="text-decoration:none">{latest.data.title}</a></h1>
+        <p>{latest.data.summary}</p>
+        <p><a href={url(`/editions/${latest.id}/`)}>Read the edition →</a></p>
+      </div>
+    </section>
+  )}
+
+  <section class="section">
+    <h2>About</h2>
+    <p class="measure">{SITE_TAGLINE} A catalog in the spirit of the Whole Earth Catalog, for the late 2020s: open models, brains, chips, and the ideas that connect them. Open things first. Every entry tells you how to get access.</p>
+  </section>
+
+  <section class="section">
+    <h2>What we believe</h2>
+    <div class="brain-grid">
+      {brain.map((doc) => (
+        <a href={url(`/brain/${doc.id}/`)}><h3>{doc.data.title}</h3><p>{doc.data.summary}</p></a>
+      ))}
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>All editions</h2>
+    <ul class="edition-list">
+      {editions.map((e) => (
+        <li><a href={url(`/editions/${e.id}/`)}><span class="num">{pad(e.data.number)}</span><span><h3>{e.data.title}</h3><p>{e.data.summary}</p></span></a></li>
+      ))}
+    </ul>
+  </section>
+
+  <section class="subscribe">
+    <h2>Get each edition by email</h2>
+    {SUBSCRIBE_URL
+      ? <p><a href={SUBSCRIBE_URL}>Subscribe here</a>. Free, no tracking, unsubscribe any time.</p>
+      : <p>Email subscriptions open soon. Until then, follow along with the <a href={url('/rss.xml')}>RSS feed</a>.</p>}
+  </section>
+</Base>

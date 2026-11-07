@@ -1,0 +1,16 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const docs = await getCollection('brain', ({ data }) => data.public);
+  return docs.map((entry) => ({ params: { id: entry.id }, props: { entry } }));
+}
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+---
+<Base title={entry.data.title} description={entry.data.summary}>
+  <div class="kicker" style="margin-top:2rem">Principles</div>
+  <h1>{entry.data.title}</h1>
+  <div class="prose measure"><Content /></div>
+</Base>
