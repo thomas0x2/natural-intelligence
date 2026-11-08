@@ -33,3 +33,4 @@ Drop ideas here as they come. When one goes into an edition, move it to the "Use
 - *What Is Intelligence?* by Blaise Agüera y Arcas · Edition 000
 - Paperclip (paperclipai/paperclip) · Edition 000
 - FlyWire, OLMo, llama.cpp, Tiny Tapeout, Neuromatch Academy · Edition 000
+- Linum P-JiT 21K (linum.ai) · Edition 001 draft
