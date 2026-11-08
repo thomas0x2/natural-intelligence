@@ -58,7 +58,7 @@ In practice you can trace a path from a sense to a movement, look up any cell ty
 
 ## Building with AI
 
-An open company of agents, an image model two people trained from scratch, and how an agent learns to remember.
+An open company of agents, the engine for running models on your own machine, an image model two people trained from scratch, and how an agent learns to remember.
 
 ### Paperclip
 
@@ -69,6 +69,14 @@ An open-source system for running a whole team of AI agents as if it were a comp
 We list it because it is open and inspectable, not because the vision is settled. Running it is a good way to form your own view of how far agent autonomy goes today, and where it still needs a human. Watch the bills: agents spend real money on model calls.
 
 > **Access** · [github.com/paperclipai/paperclip](https://github.com/paperclipai/paperclip) · Open source (MIT) · Free, plus your model API costs · Node.js on a laptop or server
+
+### llama.cpp
+
+![Flying through an endless 3D grid of glowing dots](/art/plates/22-through-the-grid.jpg "Plate 22 · Through the grid")
+
+A plain C and C++ program that runs open-weight language models on ordinary hardware, including laptops without a dedicated GPU. It is the engine underneath a large share of local AI tools. If you want a model that runs on your own machine, offline, and answers to no one's terms of service, start here.
+
+> **Access** · [github.com/ggml-org/llama.cpp](https://github.com/ggml-org/llama.cpp) · Open source (MIT) · Free · Any recent laptop
 
 ### Linum P-JiT 21K
 
