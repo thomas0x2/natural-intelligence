@@ -34,15 +34,17 @@ You do not have to agree with all of it. You will come away with a sharper sense
 
 > **Access** · [whatisintelligence.antikythera.org](https://whatisintelligence.antikythera.org/) · Free to read online; print edition from The MIT Press (2025) · A browser or a bookshelf
 
-### The fly that fits on your desk
+### FlyWire, a whole fly brain
 
 ![An MRI slice of a brain in blue-grey dots with false-colour activity](/art/plates/16-brain-slice.jpg "Plate 16 · Brain slice")
 
-The FlyWire consortium mapped every neuron in the brain of an adult fruit fly, about 140,000 of them, along with the tens of millions of synapses between them. The whole wiring diagram is public. You can browse it in a web viewer, pull individual circuits and download the full graph to analyze yourself.
+The FlyWire consortium mapped every neuron in the brain of an adult fruit fly: 139,255 neurons and about 54.5 million synapses, traced by AI and proofread by hundreds of scientists and volunteers, published in *Nature* in 2024. It is the complete wiring diagram of a brain that walks, flies, courts and learns, and all of it is public.
 
-For a functionalist this is a remarkable object. It is the complete organization of a working mind that walks, flies, courts and learns, available for anyone to study and simulate. Start with the visual system, which is well annotated, and work inward.
+What is it good for? Be honest about what it is: a map of which neuron connects to which, not a recording of what the brain does. It does not show how strong a connection is in life, how chemicals reshape the circuit, or what the fly has learned. The surprise is how far the map alone gets you. A companion study simulated every neuron from the wiring plus predicted neurotransmitters, and the model picked out neurons that start feeding and drive grooming, some of which the authors then confirmed in real flies. For a functionalist that is the interesting question in miniature: how much of a mind is in its organization?
 
-> **Access** · [flywire.ai](https://flywire.ai) · Open data · Free · A browser to explore, a laptop to analyze
+In practice you can trace a path from a sense to a movement, look up any cell type in 3D, use the graph as a real biological network for network science or machine learning, or compare it with the artificial networks elsewhere in this issue. Start in the Codex web app; the full connection tables are on Zenodo if you want to work offline.
+
+> **Access** · [codex.flywire.ai](https://codex.flywire.ai) · Open data (CC BY 4.0) · Free · A browser and a Google sign-in to explore; Python and about 1 GB of disk for the connection table (10 GB with every synapse)
 
 ### Neuromatch Academy
 
