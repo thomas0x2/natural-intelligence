@@ -37,3 +37,4 @@ Drop ideas here as they come. When one goes into an edition, move it to the "Use
 - *Agentworld* by Benjamin Bratton (Antikythera brief) · Edition 000
 - Linum P-JiT 21K (linum.ai) · Edition 000 (moved from the 001 draft)
 - "The components of agent memory" (Anthropic, 2026-11-06) · Edition 000
+- e-means (Meta FAIR, 2026-11-06) · Edition 001 draft
