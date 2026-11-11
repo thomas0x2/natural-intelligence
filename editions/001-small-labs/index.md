@@ -16,7 +16,7 @@ A short opening note for this edition.
 
 ## Building with AI
 
-A faster way to cluster, an inference engine you build yourself one kernel at a time, and a voice small enough for a browser tab.
+A faster way to cluster, and an inference engine you build yourself one kernel at a time.
 
 ### e-means
 
@@ -42,6 +42,10 @@ It is a learning engine, not a server. It runs one model with fixed dimensions a
 
 > **Access** · [github.com/samir-sarwar/samir-vllm](https://github.com/samir-sarwar/samir-vllm) · Open source (MIT code); notes all rights reserved; Llama 3.2 weights-available · Free · An NVIDIA GPU with the CUDA Toolkit, CMake and a C++17 compiler to build it; a browser for the videos
 
+## On Your Own Machine
+
+A voice small enough for a browser tab and a model small enough to run an agent on a laptop: two pieces of a stack that never leaves your computer.
+
 ### Phonon 31m
 
 ![A halftone wave rolling through a field of blue dots](/art/plates/24-grid-wave.jpg "Plate 24 · Grid wave")
@@ -53,6 +57,18 @@ What makes it useful is how many ways in there are. The runtime, ptts, is MIT or
 Only this English model is open. The larger 40M Phonon models, including the multilingual one, are CC BY-NC 4.0, so they are weights-available, not open. Quality claims are the maker's own. Long text is split into sentences and spoken one after another, so the intonation does not carry across a paragraph.
 
 > **Access** · [huggingface.co/gradium/phonon-31m-en](https://huggingface.co/gradium/phonon-31m-en) · Open weights (Apache 2.0); runtime open source (MIT or Apache 2.0) · Free · Any laptop, phone or browser
+
+### LFM3-1.7B
+
+![A field of pink strokes turning, wave by wave, to point the same way](/art/plates/21-aligning-field.jpg "Plate 21 · Aligning field")
+
+A small language model from Liquid AI, built to drive an agent on your own hardware. It has 1.7 billion parameters, and most of its 24 layers are not attention at all: 13 are gated short convolutions, with 5 sliding-window and 6 global attention layers in between. That mix is why it is cheap to run. At 4 bits it needs about 1 GB of memory and handles a 256,000-token context. It was post-trained for agent harnesses such as Hermes Agent, Pi and OpenClaw, and for tool calls and structured output.
+
+It ships in every format a local stack wants: GGUF for llama.cpp, Ollama and LM Studio, MLX for Apple Silicon, and ONNX. On a 16 GB laptop it leaves plenty of room for everything else. Pair it with Phonon above and llama.cpp from Edition 000, and you have an agent that reads, acts and talks without a network connection.
+
+It is not open. The LFM Open License lets you use, modify and redistribute it, but any commercial use by a company with US$10 million or more in annual revenue is not licensed (qualified non-profits are exempt). So we call it weights-available. Liquid AI says itself that it is "not recommended for agentic coding or complex multi-step reasoning due to its small size," and suggests retrieval or search for knowledge-heavy tasks. Benchmark claims are the maker's own.
+
+> **Access** · [huggingface.co/LiquidAI/LFM3-1.7B](https://huggingface.co/LiquidAI/LFM3-1.7B) · Weights-available (LFM Open License v1.0; no commercial use by companies with US$10M+ revenue) · Free · Any laptop; llama.cpp, Ollama, LM Studio or MLX
 
 ## Letters
 

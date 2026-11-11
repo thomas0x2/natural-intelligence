@@ -40,3 +40,4 @@ Drop ideas here as they come. When one goes into an edition, move it to the "Use
 - e-means (Meta FAIR, 2026-11-06) · Edition 001 draft
 - samir-vllm (Samir Sarwar) · Edition 001 draft
 - Phonon 31m (Gradium) · Edition 001 draft
+- LFM3-1.7B (Liquid AI) · Edition 001 draft
