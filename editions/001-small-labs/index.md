@@ -16,7 +16,7 @@ A short opening note for this edition.
 
 ## Building with AI
 
-A faster way to cluster, and an inference engine you build yourself one kernel at a time.
+A faster way to cluster, an inference engine you build yourself one kernel at a time, and an agent's eight-hour weight edit turned into one equation.
 
 ### e-means
 
@@ -41,6 +41,18 @@ Those last steps are the ideas behind vLLM, the engine that serves a large share
 It is a learning engine, not a server. It runs one model with fixed dimensions and a 2,048-token context, and it is one person's project. The license is split: the engine code is MIT, but the notes, PDFs and other teaching materials are all rights reserved, free for personal reading and study only. The Llama 3.2 weights it runs are weights-available under Meta's community license, and you download them separately.
 
 > **Access** · [github.com/samir-sarwar/samir-vllm](https://github.com/samir-sarwar/samir-vllm) · Open source (MIT code); notes all rights reserved; Llama 3.2 weights-available · Free · An NVIDIA GPU with the CUDA Toolkit, CMake and a C++17 compiler to build it; a browser for the videos
+
+### Weight-space LP
+
+![A dotted terrain with a white path descending into a valley](/art/plates/18-loss-landscape.jpg "Plate 18 · Loss landscape")
+
+Qwen3.5-0.8B, a small open model, often gets stuck repeating itself while it reasons. In *Sparks of Weight-Space Programming* (November 2026), a team at MIT CSAIL had an AI agent fix this by editing the model's weights by hand. After about eight hours of search, it changed 0.016% of the weights and lifted the model's score on MATH-500, a set of competition math problems, from 7.9% to 48.1%. It looked like a machine doing surgery on another machine's mind.
+
+Nathan Barry took the edit apart. It turns out to do one simple thing: in two layers, it pushes the hidden state away from a single "loop direction." Once you know that, choosing which neurons to change and by how much is a sparse linear program, a standard kind of optimization problem. In his write-up it solves in about a minute, matches the agent's benchmark scores within noise, and changes about 8 times fewer weights. A version that finds the loop direction from the model's own repetitive traces, with no LLM involved, gets about 93% of the way. A plain steering vector along the same direction does nearly as well.
+
+That is why we list it. It takes an impressive result and finds the mechanism under it, and it shows how much of "editing a mind" can be ordinary linear algebra. Barry is clear about the limits: one model, one failure mode, and the two layers still come from the agent's work. How to pick layers without an agent is an open question. The solver is his own GPU implementation, and the full evaluations want a CUDA GPU with 24 GB or more.
+
+> **Access** · [nathan.rs](https://nathan.rs/posts/weight-space-lp/) · Open source (MIT, [github.com/nathanrs/weight-space-lp](https://github.com/nathanrs/weight-space-lp)); Qwen3.5-0.8B under its own license · Free · Python 3.12 on an Apple Silicon or CUDA machine for the solve; a 24 GB GPU for the benchmark runs
 
 ## On Your Own Machine
 
