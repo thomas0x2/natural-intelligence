@@ -42,3 +42,4 @@ Drop ideas here as they come. When one goes into an edition, move it to the "Use
 - Phonon 31m (Gradium) · Edition 001 draft
 - LFM3-1.7B (Liquid AI) · Edition 001 draft
 - Weight-space LP (Nathan Barry) · Edition 001 draft
+- smolmaxxing (Mohamed Rashad) · Edition 001 draft

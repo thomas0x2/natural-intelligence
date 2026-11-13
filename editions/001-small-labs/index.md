@@ -56,7 +56,7 @@ That is why we list it. It takes an impressive result and finds the mechanism un
 
 ## On Your Own Machine
 
-A voice small enough for a browser tab and a model small enough to run an agent on a laptop: two pieces of a stack that never leaves your computer.
+A voice small enough for a browser tab, a model small enough to run an agent on a laptop, and a 16B model on a TV box: a stack that never leaves your own hardware.
 
 ### Phonon 31m
 
@@ -81,6 +81,18 @@ It ships in every format a local stack wants: GGUF for llama.cpp, Ollama and LM 
 It is not open. The LFM Open License lets you use, modify and redistribute it, but any commercial use by a company with US$10 million or more in annual revenue is not licensed (qualified non-profits are exempt). So we call it weights-available. Liquid AI says itself that it is "not recommended for agentic coding or complex multi-step reasoning due to its small size," and suggests retrieval or search for knowledge-heavy tasks. Benchmark claims are the maker's own.
 
 > **Access** · [huggingface.co/LiquidAI/LFM3-1.7B](https://huggingface.co/LiquidAI/LFM3-1.7B) · Weights-available (LFM Open License v1.0; no commercial use by companies with US$10M+ revenue) · Free · Any laptop; llama.cpp, Ollama, LM Studio or MLX
+
+### smolmaxxing
+
+![A Sierpiński carpet in cyan dots: squares with their middle ninth removed, again and again](/art/plates/01-sierpinski-carpet.jpg "Plate 01 · Sierpiński carpet")
+
+How big a language model can you run on a machine with 1 GB of RAM? Mohamed Rashad set out to answer that on two devices most people would throw away: a cheap Xiaomi TV box with about 1 GB of usable memory, and a first-generation iPad Air from 2013. His answer is a 16-billion-parameter model. On the TV box, Ling-mini-2.0, a 16B mixture-of-experts (MoE) model, runs at about 5 tokens per second, and Qwen3.5-2B, a good everyday model, at 7.7.
+
+It is all a patch on llama.cpp, the engine in Edition 000. There are hand-written ARM kernels for 1-bit, 2-bit and ternary weights, a pruned vocabulary that drops output rows a small model rarely uses, and dense weights streamed from flash when they do not fit in RAM. The key trick is an expert pager. An MoE model only uses a few experts per token, so smolmaxxing keeps the popular ones in memory, reads the rest from flash when they are needed and prefetches the next layer's.
+
+The best part is the lab notebook: 160 experiments, failures included, each with what it bought. That makes it a course in where the memory and the time actually go when a model runs. It is also honest about the costs. Experts squeezed to 2 bits lose the thread after about 250 to 300 words until a repeat penalty fixes most of it. The iPad needs a jailbreak, and the model files need the patched llama.cpp, because stock llama.cpp cannot load them. It is one person's project, and so far only these two devices have been measured.
+
+> **Access** · [github.com/hyperionaidev/smolmaxxing](https://github.com/hyperionaidev/smolmaxxing) · Open source (MIT, patches on MIT llama.cpp); each model keeps its own license · Free · An ARM Android device with adb, or a jailbroken iPad on iOS 12; zig, cmake and uv to cross-compile
 
 ## Letters
 
